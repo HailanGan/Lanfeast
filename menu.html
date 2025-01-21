@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      /*overflow-x: hidden;*/
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .home-icon {
+    position: absolute; /* 绝对定位 */
+    top: 10px; /* 距离顶部 10px */
+    left: 10px; /* 距离左侧 10px */
+    z-index: 1000; /* 确保图标在所有内容之上 */
+  }
+
+  .home-icon img {
+    width: 60px; /* 设置图标宽度 */
+    height: 60px; /* 设置图标高度 */
+    cursor: pointer; /* 鼠标悬停时显示为点击手势 */
+    transition: transform 0.2s ease; /* 添加悬停效果 */
+  }
+
+  .home-icon img:hover {
+    transform: scale(1.2); /* 鼠标悬停时放大图标 */
+  }
+
+  .menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
+  }
+
+  .menu-item img {
+    margin-left: 5px; /* 图标与文字间距 */
+  }
+
+  .menu-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 2% 5%;
+}
+
+.menu-item {
+    flex: 1 1 45%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+@media (max-width: 1200px) {
+    .menu-item {
+        flex: 1 1 100%;
+    }
+    .menu-title {
+        font-size: 48px;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-title {
+        font-size: 32px;
+    }
+    .menu-item {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-title {
+        font-size: 24px;
+    }
+}
+
+    img {
+    max-width: 100%;
+    height: auto;
+}
+
+    .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+    #backToTopContainer {
+    position: fixed;
+    bottom: 30px;
+    right: 10px;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    display: none; /* 初始隐藏 */
+    z-index: 1000;
+    }
+
+    #backToTopContainer img {
+        width: 80%;
+        height: 80%;
+        transition: transform 0.3s ease;
+    }
+
+    #backToTopContainer:hover img {
+        transform: scale(1.2); /* 鼠标悬停放大 */
+    }
+
+    /* Logo */
+.menu-logo {
+  width: 80px;
+  height: 80px;
+  left: 20px;
+  top: 26px;
+  position: absolute;
+}
+
+/* 菜单标题 */
+.menu-title {
+  width: 341px;
+  height: 56px;
+  left: 586px;
+  top: 38px;
+  position: absolute;
+  text-align: center;
+  color: #D5B49F;
+  font-size: 50px;
+  font-family: 'Crimson Text', serif;
+  font-weight: 700;
+  line-height: 45px;
+  letter-spacing: 5px;
+  word-wrap: break-word;
+}
+
+/* 菜单分区标题样式 */
+.menu-section {
+  position: absolute;
+  text-align: center;
+  color: white;
+  font-size: 32px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 700;
+  text-decoration: underline;
+  line-height: 30px;
+  letter-spacing: 1px;
+  word-wrap: break-word;
+}
+
+/* 每个分类的定位 */
+.appetizers {
+  width: 378px;
+  height: 30px;
+  left: 20px;
+  top: 185px;
+}
+
+.main-dishes {
+  width: 495px;
+  height: 41px;
+  left: 20px;
+  top: 1111px;
+}
+
+.wheats {
+  width: 544px;
+  height: 91px;
+  left: 20px;
+  top: 1981px;
+}
+
+/* 小分类文字样式 */
+.menu-subtext {
+  color: #D5B49F;
+  font-size: 24px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 500;
+  text-decoration: underline;
+  line-height: 40px;
+  letter-spacing: 1px;
+  word-wrap: break-word;
+}
+
+.soup {
+  width: 192px;
+  height: 30px;
+  left: 20px;
+  top: 810px;
+}
+
+/* 黑色边框盒子 */
+.menu-box {
+  position: absolute;
+  background: black;
+  border-radius: 50px;
+  border: 3px solid white;
+}
+
+/* 各个类别的盒子定位 */
+.appetizers-box {
+  width: 1347px;
+  height: 515px;
+  left: 83px;
+  top: 245px;
+}
+
+.main-dishes-box {
+  width: 1347px;
+  height: 749px;
+  left: 83px;
+  top: 1182px;
+}
+
+.wheats-box {
+  width: 1347px;
+  height: 543px;
+  left: 83px;
+  top: 2102px;
+}
+
+/* 联系方式 */
+.contact-info {
+  width: 30%;
+  position: absolute;
+  left: 72%;
+  top: 25px;
+  text-align: center;
+  color: white;
+  font-size: 1vw; /* 自适应字体大小 */
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: 1.20px;
+  word-wrap: break-word;
+}
+
+
+
+  </style>
+
+  <div style="width: 1512px; height: 6998px; position: relative; background: black">
+  <div class="home-icon">
+  <a href="index.html">
+    <img src="home.png" alt="Home Icon">
+  </a>
+</div>
+  <div class="menu-logo"></div>
+
+<div class="menu-title">
+    MENU
+</div>
+
+<div class="menu-section appetizers">
+    APPETIZERS 前菜
+</div>
+
+<div class="menu-section main-dishes">
+    MAIN DISHES|ENTREES 大菜
+</div>
+
+<div class="menu-section wheats">
+    <span>ALL ABOUT WHEATS 主食</span><br/>
+    <span class="menu-subtext">NOODLES | PANCAKE | BAO | DUMPLINGS</span>
+</div>
+
+<div class="menu-section soup">
+    SOUP 汤
+</div>
+
+<div class="menu-box appetizers-box"></div>
+<div class="menu-box main-dishes-box"></div>
+<div class="menu-box wheats-box"></div>
+
+  <div style="width: 525px; left: 106px; top: 1458px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Lan Feast Spicy Chicken Stew<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">兰州大盘鸡<br/></span><span style="color: white; font-size: 16px; font-family: IBM Plex Mono; font-weight: 400; line-height: 30px; word-wrap: break-word">Chicken with Bones, onion, pepper, potato</span></div>
+  <div style="width: 525px; left: 106px; top: 1571px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Stir Fry Beef/Lamb w/ Potato Noodle<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">粉条炒肉(牛肉/羊肉)<br/></span><span style="color: white; font-size: 16px; font-family: IBM Plex Mono; font-weight: 400; line-height: 30px; word-wrap: break-word">Lamb / Beef frank, pepper, potato noodle</span></div>
+  <div style="width: 525px; left: 106px; top: 1684px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Lanzhou Spicy Stir-Fried Shrimp<br/>w/ Calamari<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">兰州干锅鱿鱼虾</span></div>
+  <div style="width: 525px; height: 153px; left: 797px; top: 1345px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Lan Feast Salt & Pepper Chicken w/ Chinese Tea<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">茶香椒盐鸡<br/></span><span style="color: white; font-size: 16px; font-family: IBM Plex Mono; font-weight: 400; line-height: 30px; word-wrap: break-word">Chicken with bones, pepper, sea salt, Chinese<br/>tea leaves</span></div>
+  <div style="width: 525px; left: 106px; top: 1345px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Lan Feast Tender Boiled Mutton<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">兰州手抓羊肉<br/></span><span style="color: white; font-size: 16px; font-family: IBM Plex Mono; font-weight: 400; line-height: 30px; word-wrap: break-word">Lamb ribs with bones, seasoning with chili powder and salt</span></div>
+  <div style="width: 30px; height: 30px; left: 463px; top: 1489px; position: absolute">
+    <div style="width: 25px; height: 25px; left: 2.50px; top: 2.50px; position: absolute">
+      <img src="Group.png" alt="Spicy Icon" width="26" height="26">
+    </div>
+  </div>
+  <div style="width: 30px; height: 30px; left: 516px; top: 1602px; position: absolute">
+    <div style="width: 25px; height: 25px; left: 2.50px; top: 2.50px; position: absolute">
+      <img src="Group.png" alt="Spicy Icon">
+    </div>
+  </div>
+  <div style="width: 30px; height: 30px; left: 546px; top: 1602px; position: absolute">
+    <div style="width: 25px; height: 25px; left: 2.50px; top: 2.50px; position: absolute">
+      <img src="Group.png" alt="Spicy Icon">
+    </div>
+  </div>
+  <div style="width: 30px; height: 30px; left: 433px; top: 1489px; position: absolute">
+    <div style="width: 25.10px; height: 26.02px; left: 2.49px; top: 3.75px; position: absolute">
+      <img src="cook.png" alt="Spicy Icon">
+    </div>
+  </div>
+  <div style="width: 30px; height: 30px; left: 486px; top: 1602px; position: absolute">
+    <div style="width: 25.10px; height: 26.02px; left: 2.49px; top: 3.75px; position: absolute">
+      <img src="cook.png" alt="Spicy Icon">
+    </div>
+  </div>
+  <div style="width: 30px; height: 30px; left: 446px; top: 1376px; position: absolute">
+    <div style="width: 25.10px; height: 26.02px; left: 2.49px; top: 3.75px; position: absolute">
+      <img src="cook.png" alt="Spicy Icon">
+    </div>
+  </div>
+  <div style="width: 525px; left: 106px; top: 1232px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Lan Feast Braised Lamb Shank<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 600; line-height: 30px; word-wrap: break-word">黄焖羊羔肉<br/></span><span style="color: white; font-size: 16px; font-family: IBM Plex Mono; font-weight: 400; line-height: 30px; word-wrap: break-word">Lamb chops, onion, pepper, special seasoning sauce</span></div>
+  <div style="width: 520px; height: 153px; left: 106px; top: 2152px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Lanzhou Hand-Pulled Beef Noodles<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 600; line-height: 30px; word-wrap: break-word">兰州牛肉面<br/></span><span style="color: #FFA629; font-size: 16px; font-family: IBM Plex Mono; font-weight: 500; line-height: 30px; word-wrap: break-word">Noodle Types: Thin | Regular | Thick | Wide | Extra Wide<br/>面粗细：毛细｜细｜二细｜韭叶｜大宽<br/>Spicy options 可选辣度</span></div>
+  <div style="width: 525px; left: 797px; top: 1232px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Szechuan Fried Chicken Bites<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">宴蘭辣子鸡<br/></span><span style="color: white; font-size: 16px; font-family: IBM Plex Mono; font-weight: 400; line-height: 30px; word-wrap: break-word">Fried chicken, Szechuan pepper, chili</span></div>
+  <div style="width: 525px; left: 797px; top: 1480px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Tang Dynasty Boiled Spicy Fish<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">大唐沸腾鱼</span></div>
+  <div style="width: 525px; left: 106px; top: 1794px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Traditional Kung Pao Chicken <br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">传统宫保鸡丁</span></div>
+  <div style="width: 525px; left: 106px; top: 2325px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Braised Beef Noodles<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">红烧牛肉面</span></div>
+  <div style="width: 525px; left: 797px; top: 2265px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Hand Made Scallion Pancake<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">手工葱油饼</span></div>
+  <div style="width: 525px; left: 797px; top: 2345px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Golden & Silver Mini Bao<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">金银馒头</span></div>
+  <div style="width: 525px; left: 797px; top: 2535px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Rice<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">米饭</span></div>
+  <div style="width: 525px; left: 797px; top: 2425px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Fried Rice with<br/>Pickled Mustard Greens & Egg<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">芽菜蛋炒饭</span></div>
+  <div style="width: 525px; left: 106px; top: 2518px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Beef Brisket Scallion Pancake Wrap <br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">牛肉卷饼</span></div>
+  <div style="width: 525px; left: 106px; top: 2405px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Chili Oil Hand-Pulled Noodles<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">油泼扯面<br/></span><span style="color: #FFA629; font-size: 16px; font-family: IBM Plex Mono; font-weight: 500; line-height: 30px; word-wrap: break-word">Chili Oil and Boy Choi</span></div>
+  <div style="width: 525px; left: 797px; top: 2152px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Hand Made Pan-Seared Gyoza (8)<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">手工煎饺牛肉大葱馅（8个）<br/></span><span style="color: #FFA629; font-size: 16px; font-family: IBM Plex Mono; font-weight: 500; line-height: 30px; word-wrap: break-word">Beef & Scallion</span></div>
+  <div style="width: 525px; left: 797px; top: 1570px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Sizzling Cumin Lamb<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">西北孜然羊肉</span></div>
+  <div style="width: 525px; left: 797px; top: 1800px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Stir Fried Beef w/ Scallion & Leek<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">葱爆牛肉</span></div>
+  <div style="width: 507px; left: 815px; top: 1660px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Marinated Beef Brisket<br/>w/ Potatoes Ball<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">土豆丸子牛腩煲<br/></span><span style="color: white; font-size: 16px; font-family: IBM Plex Mono; font-weight: 400; line-height: 30px; word-wrap: break-word">Soy sauce beef brisket, tomato, potato</span></div>
+  <div style="width: 30px; height: 30px; left: 463px; top: 1263px; position: absolute">
+    <div style="width: 25px; height: 25px; left: 2.50px; top: 2.50px; position: absolute">
+     <img src="Group.png" alt="Spicy Icon">
+    </div>
+  </div>
+  <div style="width: 30px; height: 30px; left: 1154px; top: 1263px; position: absolute">
+    <div style="width: 25px; height: 25px; left: 2.50px; top: 2.50px; position: absolute">
+      <img src="Group.png" alt="Spicy Icon">
+    </div>
+  </div>
+  <div style="width: 30px; height: 30px; left: 1154px; top: 1510px; position: absolute">
+    <div style="width: 25px; height: 25px; left: 2.50px; top: 2.50px; position: absolute">
+      <img src="Group.png" alt="Spicy Icon">
+    </div>
+  </div>
+  <div style="width: 30px; height: 30px; left: 475px; top: 1822px; position: absolute">
+    <div style="width: 25px; height: 25px; left: 2.50px; top: 2.50px; position: absolute">
+      <img src="Group.png" alt="Spicy Icon">
+    </div>
+  </div>
+  <div style="width: 30px; height: 30px; left: 493px; top: 2273px; position: absolute">
+    <div style="width: 25px; height: 25px; left: 2.50px; top: 2.50px; position: absolute">
+      <img src="Group.png" alt="Spicy Icon">
+    </div>
+  </div>
+  <div style="width: 30px; height: 30px; left: 553px; top: 2273px; position: absolute">
+    <div style="width: 25px; height: 25px; left: 2.50px; top: 2.50px; position: absolute">
+      <img src="Group.png" alt="Spicy Icon">
+    </div>
+  </div>
+  <div style="width: 30px; height: 30px; left: 1184px; top: 1263px; position: absolute">
+    <div style="width: 25px; height: 25px; left: 2.50px; top: 2.50px; position: absolute">
+      <img src="Group.png" alt="Spicy Icon">
+    </div>
+  </div>
+  <div style="width: 30px; height: 30px; left: 1184px; top: 1510px; position: absolute">
+    <div style="width: 25px; height: 25px; left: 2.50px; top: 2.50px; position: absolute">
+      <img src="Group.png" alt="Spicy Icon">
+    </div>
+  </div>
+  <div style="width: 30px; height: 30px; left: 1124px; top: 1263px; position: absolute">
+    <div style="width: 25px; height: 25px; left: 2.50px; top: 2.50px; position: absolute">
+      <img src="Group.png" alt="Spicy Icon">
+    </div>
+  </div>
+  <div style="width: 30px; height: 30px; left: 1124px; top: 1510px; position: absolute">
+    <div style="width: 25px; height: 25px; left: 2.50px; top: 2.50px; position: absolute">
+      <img src="Group.png" alt="Spicy Icon">
+    </div>
+  </div>
+  <div style="width: 30px; height: 30px; left: 445px; top: 1822px; position: absolute">
+    <div style="width: 25px; height: 25px; left: 2.50px; top: 2.50px; position: absolute">
+     <img src="Group.png" alt="Spicy Icon">
+    </div>
+  </div>
+  <div style="width: 30px; height: 30px; left: 463px; top: 2273px; position: absolute">
+    <div style="width: 25px; height: 25px; left: 2.50px; top: 2.50px; position: absolute">
+      <img src="Group.png" alt="Spicy Icon">
+    </div>
+  </div>
+  <div style="width: 30px; height: 30px; left: 523px; top: 2273px; position: absolute">
+    <div style="width: 25px; height: 25px; left: 2.50px; top: 2.50px; position: absolute">
+      <img src="Group.png" alt="Spicy Icon">
+    </div>
+  </div>
+  <div style="width: 30px; height: 30px; left: 433px; top: 1263px; position: absolute">
+    <div style="width: 25.10px; height: 26.02px; left: 2.49px; top: 3.75px; position: absolute">
+      <img src="cook.png" alt="Spicy Icon">
+    </div>
+  </div>
+  <div style="width: 30px; height: 30px; left: 433px; top: 2184px; position: absolute">
+    <div style="width: 25.10px; height: 26.02px; left: 2.49px; top: 3.75px; position: absolute">
+      <img src="cook.png" alt="Spicy Icon">
+    </div>
+  </div>
+  <div style="width: 89px; height: 37px; left: 626px; top: 1260px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$35</div>
+  <div style="width: 1410px; height: 495px; left: 20px; top: 3899px; position: absolute">
+    <div style="width: 1347px; height: 435px; left: 63px; top: 60px; position: absolute; background: black; border-radius: 50px; border: 3px white solid"></div>
+    <div style="width: 301px; height: 30px; left: 0px; top: 0px; position: absolute; text-align: center; color: white; font-size: 32px; font-family: IBM Plex Mono; font-weight: 700; text-decoration: underline; line-height: 10px; letter-spacing: 1px; word-wrap: break-word">BARBECUE 烧烤类</div>
+    <div style="width: 525px; left: 86px; top: 190px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Lamb Skewer<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 600; line-height: 30px; word-wrap: break-word">烤羊肉串</span></div>
+    <div style="width: 525px; left: 86px; top: 110px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Lamb Leg (Whole)<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 600; line-height: 30px; word-wrap: break-word">烤羊腿</span></div>
+    <div style="width: 525px; left: 763px; top: 110px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Potato Chips<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 600; line-height: 30px; word-wrap: break-word">洋芋片</span></div>
+    <div style="width: 525px; left: 763px; top: 190px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Chicken Wings<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 600; line-height: 30px; word-wrap: break-word">烤鸡翅</span></div>
+    <div style="width: 525px; left: 763px; top: 270px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Garlic Shrimp Skewer <br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 600; line-height: 30px; word-wrap: break-word">蒜香烤虾</span></div>
+    <div style="width: 525px; left: 86px; top: 270px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Beef Skewer<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 600; line-height: 30px; word-wrap: break-word">烤牛肉串</span></div>
+    <div style="width: 525px; left: 86px; top: 350px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Chicken Skewer<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 600; line-height: 30px; word-wrap: break-word">烤鸡肉串</span></div>
+    <div style="width: 408px; height: 30px; left: 533px; top: 440px; position: absolute">
+      <div style="width: 308px; left: 0px; top: 0px; position: absolute; text-align: center; color: #FFA629; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Spicy options 可选辣度：</div>
+      <div style="width: 30px; height: 30px; left: 348px; top: 0px; position: absolute">
+        <div style="width: 25px; height: 25px; left: 2.50px; top: 2.50px; position: absolute">
+          <img src="Group.png" alt="Spicy Icon">
+        </div>
+      </div>
+      <div style="width: 30px; height: 30px; left: 318px; top: 0px; position: absolute">
+        <div style="width: 25px; height: 25px; left: 2.50px; top: 2.50px; position: absolute">
+          <img src="Group.png" alt="Spicy Icon">
+        </div>
+      </div>
+      <div style="width: 30px; height: 30px; left: 378px; top: 0px; position: absolute">
+        <div style="width: 25px; height: 25px; left: 2.50px; top: 2.50px; position: absolute">
+         <img src="Group.png" alt="Spicy Icon">
+        </div>
+      </div>
+    </div>
+    <div style="width: 116px; height: 37px; left: 593px; top: 201px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$12 / 3</div>
+    <div style="width: 116px; height: 37px; left: 593px; top: 121px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$26</div>
+    <div style="width: 116px; height: 37px; left: 1270px; top: 121px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$5</div>
+    <div style="width: 116px; height: 37px; left: 1270px; top: 201px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$8/2</div>
+    <div style="width: 116px; height: 37px; left: 1270px; top: 281px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$14 / 3</div>
+    <div style="width: 116px; height: 37px; left: 593px; top: 281px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$12 / 3</div>
+    <div style="width: 116px; height: 37px; left: 593px; top: 361px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$8 / 3</div>
+  </div>
+  <div style="width: 1410px; height: 440px; left: 20px; top: 3409px; position: absolute">
+    <div style="width: 1347px; height: 380px; left: 63px; top: 60px; position: absolute; background: black; border-radius: 50px; border: 3px white solid"></div>
+    <div style="width: 301px; height: 30px; left: 0px; top: 0px; position: absolute; text-align: center; color: white; font-size: 32px; font-family: IBM Plex Mono; font-weight: 700; text-decoration: underline; line-height: 10px; letter-spacing: 1px; word-wrap: break-word">VEGETABLES 素菜</div>
+    <div style="width: 525px; left: 86px; top: 110px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Lanzhou Lily Bulb and Celery<br/>Stir Fry<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 600; line-height: 30px; word-wrap: break-word">兰州西芹炒百合</span></div>
+    <div style="width: 525px; left: 86px; top: 220px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Sauteed Cauliflower w/ Garlic<br/>Chives<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 600; line-height: 30px; word-wrap: break-word">韭菜炒花菜</span></div>
+    <div style="width: 525px; left: 86px; top: 330px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Garlic Broccoli<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 600; line-height: 30px; word-wrap: break-word">蒜蓉西兰花</span></div>
+    <div style="width: 525px; left: 777px; top: 110px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Tangy & Spicy Shredded Potatoes<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 600; line-height: 30px; word-wrap: break-word">酸辣土豆丝</span></div>
+    <div style="width: 525px; left: 777px; top: 190px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Stir Fried Tofu<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 600; line-height: 30px; word-wrap: break-word">美味千页豆腐</span></div>
+    <div style="width: 525px; left: 777px; top: 270px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Soy Sauce Lettuce<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 600; line-height: 30px; word-wrap: break-word">白灼西生菜</span></div>
+    <div style="width: 525px; left: 777px; top: 350px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Stir-Fried String Beans<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 600; line-height: 30px; word-wrap: break-word">干煸四季豆</span></div>
+    <div style="width: 30px; height: 30px; left: 1109px; top: 138px; position: absolute">
+      <div style="width: 25px; height: 25px; left: 2.50px; top: 2.50px; position: absolute">
+        <img src="Group.png" alt="Spicy Icon">
+      </div>
+    </div>
+    <div style="width: 30px; height: 30px; left: 1117px; top: 218px; position: absolute">
+      <div style="width: 25px; height: 25px; left: 2.50px; top: 2.50px; position: absolute">
+       <img src="Group.png" alt="Spicy Icon">
+      </div>
+    </div>
+    <div style="width: 30px; height: 30px; left: 441px; top: 168px; position: absolute">
+      <div style="width: 25.10px; height: 26.02px; left: 2.49px; top: 3.75px; position: absolute">
+        <img src="cook.png" alt="Spicy Icon">
+      </div>
+    </div>
+    <div style="width: 30px; height: 30px; left: 418px; top: 278px; position: absolute">
+      <div style="width: 25.10px; height: 26.02px; left: 2.49px; top: 3.75px; position: absolute">
+        <img src="cook.png" alt="Spicy Icon">
+      </div>
+    </div>
+    <div style="width: 89px; height: 37px; left: 606px; top: 138px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$22</div>
+    <div style="width: 89px; height: 37px; left: 606px; top: 248px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$16</div>
+    <div style="width: 89px; height: 37px; left: 606px; top: 341px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$16</div>
+    <div style="width: 89px; height: 37px; left: 1297px; top: 121px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$14</div>
+    <div style="width: 89px; height: 37px; left: 1297px; top: 201px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$16</div>
+    <div style="width: 89px; height: 37px; left: 1297px; top: 281px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$14</div>
+    <div style="width: 89px; height: 37px; left: 1297px; top: 361px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$14</div>
+  </div>
+  <div style="width: 89px; height: 37px; left: 626px; top: 2210px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$16<br/></div>
+  <div style="width: 89px; height: 37px; left: 1317px; top: 1260px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$22</div>
+  <div style="width: 89px; height: 37px; left: 1317px; top: 1490px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$32</div>
+  <div style="width: 89px; height: 37px; left: 626px; top: 1805px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$18</div>
+  <div style="width: 89px; height: 37px; left: 626px; top: 2336px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$16</div>
+  <div style="width: 89px; height: 37px; left: 1317px; top: 2276px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$8</div>
+  <div style="width: 89px; height: 37px; left: 1317px; top: 2356px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$8</div>
+  <div style="width: 89px; height: 37px; left: 1317px; top: 2547px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$3</div>
+  <div style="width: 89px; height: 37px; left: 1317px; top: 2452px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$16</div>
+  <div style="width: 89px; height: 37px; left: 626px; top: 2529px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$16</div>
+  <div style="width: 89px; height: 37px; left: 626px; top: 2433px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$15</div>
+  <div style="width: 89px; height: 37px; left: 1317px; top: 2180px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$12</div>
+  <div style="width: 89px; height: 37px; left: 1317px; top: 1590px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$26</div>
+  <div style="width: 89px; left: 1317px; top: 1810px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$24</div>
+  <div style="width: 89px; height: 37px; left: 1317px; top: 1700px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$26</div>
+  <div style="width: 89px; height: 37px; left: 626px; top: 1500px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$32</div>
+  <div style="width: 89px; height: 37px; left: 626px; top: 1599px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$26</div>
+  <div style="width: 89px; height: 37px; left: 626px; top: 1711px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$32</div>
+  <div style="width: 89px; height: 37px; left: 1317px; top: 1388px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$26</div>
+  <div style="width: 89px; height: 37px; left: 626px; top: 1373px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$35</div>
+  <div style="width: 1347px; height: 191px; left: 83px; top: 870px; position: absolute; background: black; border-radius: 50px; border: 3px white solid"></div>
+  <div style="width: 416px; height: 71px; left: 817px; top: 303px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Cucumber Salad with Wood Ear<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 600; line-height: 30px; word-wrap: break-word">木耳黄瓜</span></div>
+  <div style="width: 383px; height: 61px; left: 833px; top: 389px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">String Bean w/ Gralic <br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 600; line-height: 30px; word-wrap: break-word">蒜蓉豆角</span></div>
+  <div style="width: 397px; height: 63px; left: 826px; top: 470px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Sichuan Chili Chicken<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 600; line-height: 30px; word-wrap: break-word">椒麻鸡</span></div>
+  <div style="width: 537px; height: 65px; left: 756px; top: 557px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Celery and Bean Curd<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 600; line-height: 30px; word-wrap: break-word">西芹腐竹</span></div>
+  <div style="width: 91px; height: 43px; left: 1311px; top: 317px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$10</div>
+  <div style="width: 107px; height: 37px; left: 1303px; top: 401px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$10</div>
+  <div style="width: 79px; height: 37px; left: 1317px; top: 483px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$14</div>
+  <div style="width: 103px; height: 39px; left: 1305px; top: 570px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$10</div>
+  <div style="width: 89px; height: 37px; left: 623px; top: 316px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$10</div>
+  <div style="width: 92px; height: 36px; left: 622px; top: 564px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$10</div>
+  <div style="width: 88px; height: 36px; left: 624px; top: 644px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$14</div>
+  <div style="width: 68px; height: 38px; left: 1325px; top: 654px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$12</div>
+  <div style="width: 78px; height: 40px; left: 629px; top: 399px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$12</div>
+  <div style="width: 97px; height: 36px; left: 619px; top: 484px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$12</div>
+  <div style="width: 30px; height: 30px; left: 1070px; top: 500px; position: absolute">
+    <div style="width: 25px; height: 25px; left: 2.50px; top: 2.50px; position: absolute">
+      <img src="Group.png" alt="Spicy Icon">
+    </div>
+  </div>
+  <div style="width: 325px; height: 63px; left: 193px; top: 303px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Shredded Veggie Trio<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 600; line-height: 30px; word-wrap: break-word">凉拌三丝</span></div>
+  <div style="width: 285px; height: 66px; left: 213px; top: 386px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Chilled Okra Salad<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 600; line-height: 30px; word-wrap: break-word">凉拌秋葵</span></div>
+  <div style="width: 413px; height: 60px; left: 149px; top: 472px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Blueberry Drizzled Blush Yam<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 600; line-height: 30px; word-wrap: break-word">胭脂山药</span></div>
+  <div style="width: 464px; height: 60px; left: 123px; top: 552px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Crispy Fried Oyster Mushrooms<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 600; line-height: 30px; word-wrap: break-word">椒盐平菇</span></div>
+  <div style="width: 444px; height: 60px; left: 133px; top: 632px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Chilled Five-Spice Beef Slices<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 600; line-height: 30px; word-wrap: break-word">凉拌牛肉</span></div>
+  <div style="width: 388px; height: 61px; left: 854px; top: 642px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Dingxi Spicy Potato Noodle<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 600; line-height: 30px; word-wrap: break-word">定西流汁宽粉</span></div>
+  <div style="width: 30px; height: 30px; left: 411px; top: 661px; position: absolute">
+    <div style="width: 25px; height: 25px; left: 2.50px; top: 2.50px; position: absolute">
+      <img src="Group.png" alt="Spicy Icon">
+    </div>
+  </div>
+  <div style="width: 416px; height: 91px; left: 801px; top: 920px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Lily Bulb w/ Melted Gold Pumpkin Soup<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">百合南瓜小米粥</span></div>
+  <div style="width: 176px; height: 31px; left: 1227px; top: 950px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">S $8 / L $16</div>
+  <div style="width: 89px; height: 37px; left: 623px; top: 947px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$16</div>
+  <div style="width: 431px; height: 65px; left: 127px; top: 933px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Lamb Soup w/ Rice Noodles<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">羊肉粉丝汤</span></div>
+  <div style="width: 1410px; height: 347px; left: 20px; top: 4444px; position: absolute">
+    <div style="width: 267px; height: 30px; left: 0px; top: 0px; position: absolute; text-align: center; color: white; font-size: 32px; font-family: IBM Plex Mono; font-weight: 700; text-decoration: underline; line-height: 10px; letter-spacing: 1px; word-wrap: break-word">DESSERTS 甜品</div>
+    <div style="width: 1347px; height: 287px; left: 63px; top: 60px; position: absolute; background: black; border-radius: 50px; border: 3px white solid"></div>
+    <div style="width: 78px; height: 40px; left: 598px; top: 203px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$10</div>
+    <div style="width: 416px; height: 91px; left: 771px; top: 110px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Osmanthus Fermented Rice w/<br/>Milk and Egg<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">桂花鸡蛋牛奶醪糟</span></div>
+    <div style="width: 416px; height: 91px; left: 771px; top: 223px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Osmanthus Jelly<br/>w/ Vanilla Ice Cream<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">雪绒桂花冻</span></div>
+    <div style="width: 73px; height: 31px; left: 1300px; top: 140px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$8 </div>
+    <div style="width: 73px; height: 31px; left: 1300px; top: 253px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$10 </div>
+    <div style="width: 89px; height: 37px; left: 593px; top: 124px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$10</div>
+    <div style="width: 431px; left: 99px; top: 110px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">8 Treasure Sticky Rice<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">八宝饭</span></div>
+    <div style="width: 362px; left: 134px; top: 190px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Home Made Brown Sugar<br/>Fried Mochi<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">手工红糖糍粑</span></div>
+  </div>
+  <div style="width: 346px; height: 30px; left: 5px; top: 5869px; position: absolute; text-align: center; color: white; font-size: 32px; font-family: IBM Plex Mono; font-weight: 700; text-decoration: underline; line-height: 10px; letter-spacing: 1px; word-wrap: break-word">COCKTAILS 鸡尾酒</div>
+  <div style="width: 346px; height: 30px; left: 5px; top: 6472px; position: absolute; text-align: center; color: white; font-size: 32px; font-family: IBM Plex Mono; font-weight: 700; text-decoration: underline; line-height: 10px; letter-spacing: 1px; word-wrap: break-word">SPECIAL 限定系列</div>
+  <div style="width: 542px; height: 30px; left: 756px; top: 5869px; position: absolute; text-align: center; color: white; font-size: 32px; font-family: IBM Plex Mono; font-weight: 700; text-decoration: underline; line-height: 10px; letter-spacing: 1px; word-wrap: break-word">SOFT DRINKS / ORIENTAL TEA</div>
+  <div style="width: 650px; height: 493px; left: 68px; top: 5929px; position: absolute; background: black; border-radius: 50px; border: 3px white solid"></div>
+  <div style="width: 650px; height: 309px; left: 68px; top: 6532px; position: absolute; background: black; border-radius: 50px; border: 3px white solid"></div>
+  <div style="width: 650px; height: 713px; left: 819px; top: 5929px; position: absolute; background: black; border-radius: 50px; border: 3px white solid"></div>
+  <div style="width: 1410px; height: 468px; left: 20px; top: 4841px; position: absolute">
+    <div style="width: 202px; height: 30px; left: 0px; top: 0px; position: absolute; text-align: center; color: white; font-size: 32px; font-family: IBM Plex Mono; font-weight: 700; text-decoration: underline; line-height: 10px; letter-spacing: 1px; word-wrap: break-word">BEERS 啤酒</div>
+    <div style="width: 1347px; height: 408px; left: 63px; top: 60px; position: absolute; background: black; border-radius: 50px; border: 3px white solid"></div>
+    <div style="width: 89px; height: 37px; left: 632px; top: 158px; position: absolute; text-align: center; color: white; font-size: 30px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$8</div>
+    <div style="width: 89px; height: 37px; left: 1287px; top: 158px; position: absolute; text-align: center; color: white; font-size: 30px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$7</div>
+    <div style="width: 89px; height: 37px; left: 1287px; top: 212px; position: absolute; text-align: center; color: white; font-size: 30px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$7</div>
+    <div style="width: 89px; height: 37px; left: 1287px; top: 269px; position: absolute; text-align: center; color: white; font-size: 30px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$7</div>
+    <div style="width: 89px; height: 37px; left: 1287px; top: 326px; position: absolute; text-align: center; color: white; font-size: 30px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$6</div>
+    <div style="width: 89px; height: 37px; left: 1287px; top: 383px; position: absolute; text-align: center; color: white; font-size: 30px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$8</div>
+    <div style="width: 89px; height: 37px; left: 632px; top: 215px; position: absolute; text-align: center; color: white; font-size: 30px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$7</div>
+    <div style="width: 89px; height: 37px; left: 632px; top: 272px; position: absolute; text-align: center; color: white; font-size: 30px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$7</div>
+    <div style="width: 89px; height: 37px; left: 632px; top: 329px; position: absolute; text-align: center; color: white; font-size: 30px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$8</div>
+    <div style="width: 431px; left: 97px; top: 108px; position: absolute; color: #D5B49F; font-size: 30px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">CRAFTS Selection</div>
+    <div style="width: 350px; left: 793px; top: 108px; position: absolute; color: #D5B49F; font-size: 30px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">DRAFTS Selection</div>
+    <div style="width: 496px; left: 97px; top: 161px; position: absolute; color: #D5B49F; font-size: 30px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Widowmaker - Blue Comet IPA</div>
+    <div style="width: 431px; left: 793px; top: 162px; position: absolute; color: #D5B49F; font-size: 30px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Harpoon IPA</div>
+    <div style="width: 431px; left: 793px; top: 215px; position: absolute; color: #D5B49F; font-size: 30px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Blue Moon</div>
+    <div style="width: 431px; left: 793px; top: 272px; position: absolute; color: #D5B49F; font-size: 30px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Sam Adams</div>
+    <div style="width: 431px; left: 793px; top: 329px; position: absolute; color: #D5B49F; font-size: 30px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Corona Extra</div>
+    <div style="width: 431px; left: 793px; top: 386px; position: absolute; color: #D5B49F; font-size: 30px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Tsingtao 青岛啤酒</div>
+    <div style="width: 486px; left: 97px; top: 218px; position: absolute; color: #D5B49F; font-size: 30px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Mast Landing - Champ Lager</div>
+    <div style="width: 536px; left: 97px; top: 275px; position: absolute; color: #D5B49F; font-size: 30px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Lone Pine - Portland Pale Ale</div>
+    <div style="width: 496px; left: 97px; top: 332px; position: absolute; color: #D5B49F; font-size: 30px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Austin Street Walcott Brown</div>
+  </div>
+  <div style="width: 1410px; height: 460px; left: 20px; top: 5359px; position: absolute">
+    <div style="width: 552px; height: 30px; left: 0px; top: 0px; position: absolute; text-align: center; color: white; font-size: 32px; font-family: IBM Plex Mono; font-weight: 700; text-decoration: underline; line-height: 10px; letter-spacing: 1px; word-wrap: break-word">ORIENTAL TEA & DRINKS 饮品</div>
+    <div style="width: 1347px; height: 400px; left: 63px; top: 60px; position: absolute; background: black; border-radius: 50px; border: 3px white solid"></div>
+    <div style="width: 89px; height: 37px; left: 582px; top: 92px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$6</div>
+    <div style="width: 446px; left: 88px; top: 80px; position: absolute"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Lan Zhou 8 Treasure Herbal Tea<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">兰州三泡台</span></div>
+    <div style="width: 89px; height: 37px; left: 582px; top: 172px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$6</div>
+    <div style="width: 446px; left: 88px; top: 160px; position: absolute"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Date and Chrysanthemum Tea<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">红枣菊花茶</span></div>
+    <div style="width: 89px; height: 37px; left: 582px; top: 252px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$5</div>
+    <div style="width: 446px; left: 88px; top: 240px; position: absolute"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Osmanthus Plum Juice<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">桂花酸梅汁</span></div>
+    <div style="width: 89px; height: 45px; left: 582px; top: 334px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$4</div>
+    <div style="width: 473px; height: 72px; left: 88px; top: 320px; position: absolute"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Wong Lo Kat<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">王老吉</span></div>
+    <div style="width: 89px; height: 37px; left: 1296px; top: 92px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$4</div>
+    <div style="width: 446px; left: 802px; top: 80px; position: absolute"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">North Pole Soda<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">北冰洋汽水</span></div>
+    <div style="width: 89px; height: 37px; left: 1296px; top: 172px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$4</div>
+    <div style="width: 89px; height: 37px; left: 1296px; top: 252px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$3</div>
+    <div style="width: 89px; height: 37px; left: 1296px; top: 362px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$3</div>
+    <div style="width: 473px; left: 802px; top: 160px; position: absolute"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Chinese Flavored Sparkling Water<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">元气森林</span></div>
+    <div style="width: 473px; left: 802px; top: 240px; position: absolute"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Assorted Soda<br/>(Coke / Sprite / Fanta etc)<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">汽水（可乐/雪碧/芬达等）</span></div>
+    <div style="width: 473px; left: 802px; top: 350px; position: absolute"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Coconut Milk<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">椰树牌椰汁</span></div>
+  </div>
+  <div style="width: 89px; height: 37px; left: 596px; top: 5958px; position: absolute; text-align: center; color: white; font-size: 32px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$10</div>
+  <div style="width: 89px; height: 37px; left: 602px; top: 6579px; position: absolute; text-align: center; color: white; font-size: 32px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$14</div>
+  <div style="width: 89px; height: 37px; left: 602px; top: 6674px; position: absolute; text-align: center; color: white; font-size: 32px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$299</div>
+  <div style="width: 120px; height: 37px; left: 571px; top: 6754px; position: absolute; text-align: center; color: white; font-size: 32px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$18.99</div>
+  <div style="width: 71px; height: 37px; left: 1387px; top: 6037px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$28</div>
+  <div style="width: 71px; height: 37px; left: 1387px; top: 6338px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$28</div>
+  <div style="width: 71px; height: 37px; left: 1387px; top: 6511px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$22</div>
+  <div style="width: 71px; height: 37px; left: 1387px; top: 6181px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$25</div>
+  <div style="width: 89px; height: 37px; left: 596px; top: 6033px; position: absolute; text-align: center; color: white; font-size: 32px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$10</div>
+  <div style="width: 89px; height: 37px; left: 596px; top: 6106px; position: absolute; text-align: center; color: white; font-size: 32px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$10</div>
+  <div style="width: 89px; height: 37px; left: 596px; top: 6179px; position: absolute; text-align: center; color: white; font-size: 32px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$10</div>
+  <div style="width: 89px; height: 37px; left: 596px; top: 6257px; position: absolute; text-align: center; color: white; font-size: 32px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$10</div>
+  <div style="width: 89px; height: 37px; left: 602px; top: 6336px; position: absolute; text-align: center; color: white; font-size: 32px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">$10</div>
+  <div style="width: 211px; left: 92px; top: 5949px; position: absolute"><span style="color: #D5B49F; font-size: 32px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Lan Mojito<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 400; line-height: 25px; word-wrap: break-word">White Rum</span></div>
+  <div style="width: 418px; left: 974px; top: 5979px; position: absolute"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Dassau 45 - Junmai Daiginjo<br/></span><span style="color: white; font-size: 18px; font-family: IBM Plex Mono; font-weight: 400; line-height: 30px; word-wrap: break-word">Light honeydew aromas with the<br/>subtle sweetness of muscat grapes<br/>complemented by an undercurrent<br/>of crisp dryness.</span></div>
+  <div style="width: 418px; left: 974px; top: 6265px; position: absolute"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Wandering poet - Junmai Ginjo <br/></span><span style="color: white; font-size: 18px; font-family: IBM Plex Mono; font-weight: 400; line-height: 30px; word-wrap: break-word">Notes of banana and ripe<br/>honeydew with a clean, crisp<br/>acidity that highlights its<br/>light-to-medium body.</span></div>
+  <div style="width: 418px; left: 974px; top: 6468px; position: absolute"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Tozai snow Maiden - Nigori <br/></span><span style="color: white; font-size: 18px; font-family: IBM Plex Mono; font-weight: 400; line-height: 30px; word-wrap: break-word">Bright and fresh with a lovely ricey<br/>and fruity combination. Creamy<br/>texture and full body.</span></div>
+  <div style="width: 418px; left: 974px; top: 6153px; position: absolute"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Hakkaisan Tokubetsu - Junmai<br/></span><span style="color: white; font-size: 18px; font-family: IBM Plex Mono; font-weight: 400; line-height: 30px; word-wrap: break-word">Well-balanced, mellow and<br/>elegant flavor</span></div>
+  <div style="width: 420px; left: 94px; top: 6552px; position: absolute"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Winter Special: Glögg<br/>(Hot Wine w/ Fruits)<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">热红酒</span></div>
+  <div style="width: 420px; left: 94px; top: 6662px; position: absolute"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Kwichow Maotai<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">贵州茅台 375mL</span></div>
+  <div style="width: 420px; left: 94px; top: 6742px; position: absolute"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Beijing Erguotou Baijiu <br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">北京二锅头 750mL</span></div>
+  <div style="width: 431px; left: 92px; top: 6025px; position: absolute"><span style="color: #D5B49F; font-size: 32px; font-family: IBM Plex Mono; font-weight: 700; line-height: 25px; word-wrap: break-word">Lan Maitai<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 400; line-height: 25px; word-wrap: break-word">Drak Rum ｜ White Rum</span></div>
+  <div style="width: 510px; left: 92px; top: 6098px; position: absolute"><span style="color: #D5B49F; font-size: 32px; font-family: IBM Plex Mono; font-weight: 700; line-height: 25px; word-wrap: break-word">Long Island Ice Tea<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 400; line-height: 25px; word-wrap: break-word">White Rum ｜ Gin ｜ Tequila ｜ Vodka</span></div>
+  <div style="width: 431px; left: 92px; top: 6171px; position: absolute"><span style="color: #D5B49F; font-size: 32px; font-family: IBM Plex Mono; font-weight: 700; line-height: 25px; word-wrap: break-word">Blue Hawaii<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 400; line-height: 25px; word-wrap: break-word">White Rum ｜ Vodka ｜ Curacao</span></div>
+  <div style="width: 431px; left: 92px; top: 6244px; position: absolute"><span style="color: #D5B49F; font-size: 32px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Pearl Harbor<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 400; line-height: 30px; word-wrap: break-word">Vodka ｜ Melon Liqueur</span></div>
+  <div style="width: 431px; left: 92px; top: 6327px; position: absolute"><span style="color: #D5B49F; font-size: 32px; font-family: IBM Plex Mono; font-weight: 700; line-height: 30px; word-wrap: break-word">Pineapple Passion<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 400; line-height: 25px; word-wrap: break-word">White Rum ｜ O-Curacao</span></div>
+  <div style="width: 1347px; height: 664px; left: 83px; top: 2695px; position: absolute">
+    <div style="width: 1347px; height: 664px; left: 0px; top: 0px; position: absolute; background: #1C1C1E; border-radius: 30px; border: 4px white solid"></div>
+    <div style="width: 700px; height: 100px; left: 350px; bottom: 530px; position: absolute; color: white; font-size: 38px; font-family: IBM Plex Mono; font-weight: 1000; line-height: 20px; letter-spacing: 1px; word-wrap: break-word">CUSTOMIZE YOUR RAMEN BELOW</div>
+    <div style="width: 173.34px; height: 99.64px; left: 325.35px; top: 126.49px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">Thin<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">毛细</span></div>
+    <div style="width: 126.39px; height: 99.64px; left: 349px; top: 391px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">Yes<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 600; line-height: 40px; word-wrap: break-word">要</span></div>
+    <div style="width: 126.39px; height: 99.64px; left: 1022.60px; top: 390.05px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">Yes<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">要</span></div>
+    <div style="width: 122.78px; height: 99.64px; left: 511.51px; top: 391px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">No<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 600; line-height: 40px; word-wrap: break-word">不要</span></div>
+    <div style="width: 122.78px; height: 99.64px; left: 1185.10px; top: 390.05px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">No<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">不要</span></div>
+    <div style="width: 128px; height: 100px; left: 768px; top: 390px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">Leek<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">蒜苗</span></div>
+    <div style="width: 176.95px; height: 99.64px; left: 516.74px; top: 126.49px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">Regular<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">细</span></div>
+    <div style="width: 169.73px; height: 99.64px; left: 711.75px; top: 126.49px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">Thick<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">二细</span></div>
+    <div style="width: 169.73px; height: 99.64px; left: 899.54px; top: 126.49px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">Wide<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">韭叶</span></div>
+    <div style="width: 238.34px; height: 99.64px; left: 1087.32px; top: 126.49px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">Extra Wide<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">大宽</span></div>
+    <div style="width: 186px; height: 100px; left: 58px; top: 119px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">Noodle Types<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">面粗细</span></div>
+    <div style="width: 165px; height: 80px; left: 69px; top: 261px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">Spicy Level<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">辣度</span></div>
+    <div style="width: 121px; height: 100px; left: 91px; top: 390px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">Cilantro<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 600; line-height: 40px; word-wrap: break-word">香菜</span></div>
+    <div style="width: 235px; height: 116px; left: 334px; top: 243px; position: absolute">
+      <div style="width: 235px; height: 75px; left: 0px; top: 41px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">No Spicy<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">不辣</span></div>
+      <div style="width: 45px; height: 45px; left: 90px; top: 0px; position: absolute">
+        <div style="width: 30px; height: 30px; left: 3.75px; top: 3.75px; position: absolute">
+          <img src="not.png" alt="Spicy Icon">
+        </div>
+      </div>
+    </div>
+    <div style="width: 235px; height: 116px; left: 587px; top: 243px; position: absolute">
+      <div style="width: 235px; height: 75px; left: 0px; top: 41px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">Mild<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">微辣</span></div>
+      <div style="width: 45px; height: 45px; left: 90px; top: 0px; position: absolute">
+        <div style="width: 37.50px; height: 37.50px; left: 3.75px; top: 3.75px; position: absolute">
+          <img src="Group.png" alt="Spicy Icon">
+        </div>
+      </div>
+    </div>
+    <div style="width: 234px; height: 116px; left: 840px; top: 243px; position: absolute">
+      <div style="width: 234px; height: 75px; left: 0px; top: 41px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">Regular<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">正常</span></div>
+      <div style="width: 45px; height: 45px; left: 61.15px; top: 0px; position: absolute">
+        <div style="width: 37.50px; height: 37.50px; left: 3.75px; top: 3.75px; position: absolute">
+          <img src="Group.png" alt="Spicy Icon">
+        </div>
+      </div>
+      <div style="width: 45px; height: 45px; left: 118.93px; top: 0px; position: absolute">
+        <div style="width: 37.50px; height: 37.50px; left: 3.75px; top: 3.75px; position: absolute">
+          <img src="Group.png" alt="Spicy Icon">
+        </div>
+      </div>
+    </div>
+    <div style="width: 234px; height: 113.27px; left: 1093px; top: 244px; position: absolute">
+      <div style="width: 234px; height: 75px; left: 0px; top: 38.27px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">Extra Hot<br/></span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">辣子多多滴</span></div>
+      <div style="width: 45px; height: 45px; left: 32.05px; top: 0px; position: absolute">
+        <div style="width: 37.50px; height: 37.50px; left: 3.75px; top: 3.75px; position: absolute">
+         <img src="Group.png" alt="Spicy Icon">
+        </div>
+      </div>
+      <div style="width: 45px; height: 45px; left: 89.83px; top: 0px; position: absolute">
+        <div style="width: 37.50px; height: 37.50px; left: 3.75px; top: 3.75px; position: absolute">
+          <img src="Group.png" alt="Spicy Icon">
+        </div>
+      </div>
+      <div style="width: 45px; height: 45px; left: 147.61px; top: 0px; position: absolute">
+        <div style="width: 37.50px; height: 37.50px; left: 3.75px; top: 3.75px; position: absolute">
+          <img src="Group.png" alt="Spicy Icon">
+        </div>
+      </div>
+    </div>
+    <div style="width: 1264px; height: 112px; left: 42px; top: 530px; position: absolute">
+      <div style="width: 428px; height: 50px; left: 23px; top: 0px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">Extra Noodle </span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">加面</span></div>
+      <div style="width: 357px; height: 50px; left: 751px; top: 0px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">Extra Beef </span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">加肉</span></div>
+      <div style="width: 357px; height: 50px; left: 751px; top: 62px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">Small Dishes </span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">凉菜</span></div>
+      <div style="width: 470px; height: 50px; left: 0px; top: 62px; position: absolute; text-align: center"><span style="color: #D5B49F; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">Sauteed Tea Egg </span><span style="color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">茶叶蛋</span></div>
+      <div style="width: 89px; height: 50px; left: 490px; top: 0px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">$3</div>
+      <div style="width: 89px; height: 50px; left: 1175px; top: 0px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">$5</div>
+      <div style="width: 89px; height: 50px; left: 490px; top: 62px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">$2</div>
+      <div style="width: 89px; height: 50px; left: 1175px; top: 62px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: IBM Plex Mono; font-weight: 700; line-height: 40px; word-wrap: break-word">$3</div>
+    </div>
+  </div>
+  <div style="width: 1345px; height: 0px; left: 85px; top: 2804px; position: absolute; border: 3px white solid"></div>
+  <div style="width: 1345px; height: 0px; left: 85px; top: 3068px; position: absolute; border: 3px white solid"></div>
+  <div style="width: 1345px; height: 0px; left: 84px; top: 3211px; position: absolute; border: 3px white solid"></div>
+  <div style="width: 1345px; height: 0px; left: 85px; top: 2929px; position: absolute; border: 3px white solid"></div>
+  <div style="width: 397px; height: 0px; left: 384.50px; top: 3210px; position: absolute; transform: rotate(-90deg); transform-origin: 0 0; border: 3px white solid"></div>
+  <div style="width: 133.01px; height: 0px; left: 765px; top: 3214.01px; position: absolute; transform: rotate(-90deg); transform-origin: 0 0; border: 3px white solid"></div>
+  <div style="width: 133.01px; height: 0px; left: 1066px; top: 3212.01px; position: absolute; transform: rotate(-90deg); transform-origin: 0 0; border: 3px white solid"></div>
+  <img style="width: 45px; height: 127.06px; left: 876px; top: 5992px; position: absolute" src= 1.png />
+  <img style="width: 45px; height: 135.78px; left: 876px; top: 6132px; position: absolute" src= 2.png />
+  <img style="width: 45px; height: 110.28px; left: 876px; top: 6301px; position: absolute" src= 3.png />
+  <img style="width: 45px; height: 111.88px; left: 876px; top: 6474px; position: absolute" src= 4.png />
+  <div style="width: 385px; height: 80px; left: 30px; top: 6891px; position: absolute">
+    <div style="width: 60px; height: 60px; left: 0px; top: 1px; position: absolute">
+      <div id="backToTopContainer" onclick="scrollToTop()">
+          <img src="top.png" alt="Back to Top">
+      </div>
+    </div>
+  </div>
+    <div class="contact-info">
+        250 Harvard St, Brookline, MA 02446<br />
+        Monday: Closed<br />
+        Tuesday - Sunday: 11:30 - 9:30<br />
+      </div>
+  </div>
+
+  <script>
+        // 监听滚动事件，控制按钮显示
+    window.onscroll = function () {
+        let backToTopBtn = document.getElementById("backToTopContainer");
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            backToTopBtn.style.display = "block"; // 向下滚动300px后显示按钮
+        } else {
+            backToTopBtn.style.display = "none";  // 否则隐藏
+        }
+    };
+
+    // 平滑滚动回到顶部
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"  // 平滑滚动效果
+        });
+    }
+
+</script>
