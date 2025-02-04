@@ -10,10 +10,9 @@
             font-family: Arial, sans-serif;
             display: flex;
             flex-direction: row;
-            height: 100vh;
+            min-height: 100vh;
             color: white;
-            overflow-x: hidden; /* 禁止滚动 */
-            overflow-y: auto;
+            overflow: hidden;
         }
 
         .sidebar {
@@ -22,9 +21,9 @@
             width: 300px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between; /* 子元素分布在顶部、中部和底部 */
-            height: 783px;
-            align-items: stretch; /* 子元素充满宽度 */
+            justify-content: space-between;
+            min-height: 100vh;
+            align-items: stretch;
         }
 
         .sidebar p {
@@ -58,10 +57,11 @@
 
         .main-content {
             flex: 1;
-            background-image: url('background.png'); /* Replace with actual image path */
+            background-image: url('background.png');
             background-size: cover;
             background-position: center;
             position: relative;
+            min-height: 100vh;
         }
 
         .main-content::before {
@@ -124,13 +124,16 @@
 @media (max-width: 768px) {
     body {
         flex-direction: column;
-        height: auto;
+        min-height: 100vh;
+        overflow-y: auto;
     }
     .sidebar {
         width: 100%;
-        height: auto;
+        min-height: auto;
         padding: 5vw;
-        align-items: center;
+    }
+    .main-content {
+        min-height: 50vh;
     }
     .sidebar p {
         font-size: 4vw;
