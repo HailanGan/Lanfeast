@@ -215,28 +215,21 @@
 </div>
 
 <script>
-        // 监听滚动事件，控制按钮显示
-    window.onscroll = function () {
-        let backToTopBtn = document.getElementById("backToTopContainer");
-        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-            backToTopBtn.style.display = "block"; // 向下滚动300px后显示按钮
-        } else {
-            backToTopBtn.style.display = "none";  // 否则隐藏
-        }
-    };
-
-    // 平滑滚动回到顶部
-    function scrollToTop() {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"  // 平滑滚动效果
-        });
+  // 监听滚动事件，控制按钮显示
+  window.onscroll = function () {
+    let backToTopBtn = document.getElementById("backToTopContainer");
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      backToTopBtn.style.display = "block";
+    } else {
+      backToTopBtn.style.display = "none";
     }
+  };
 
-    window.addEventListener('resize', function() {
-    document.body.style.width = "1512px";
-    document.body.style.height = window.innerHeight + "px";
-});
-
-
+  // 平滑滚动回到顶部
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
 </script>

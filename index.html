@@ -12,19 +12,19 @@
             flex-direction: row;
             min-height: 100vh;
             color: white;
-            overflow: hidden;
-        }
+            overflow-x: hidden;
+            overflow-y: auto;
+          }
 
         .sidebar {
             background-color: #1a1a1a;
-            padding: 20px;
-            width: 300px;
+            padding: 2vw;
+            width: clamp(220px, 20vw, 300px);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             min-height: 100vh;
-            align-items: stretch;
-        }
+          }
 
         .sidebar p {
             font-size: 16px;
@@ -47,6 +47,13 @@
             text-decoration: underline; /* 悬停效果 */
         }
 
+        .logo img {
+            display: block;
+            margin: 20px auto 0;
+            width: clamp(100px, 15vw, 150px);
+            height: auto;
+          }
+
         .sidebar .social-icons {
             display: flex;
             gap: 30px; /* 图标间距 */
@@ -62,7 +69,8 @@
             background-position: center;
             position: relative;
             min-height: 100vh;
-        }
+            overflow: hidden;
+          }
 
         .main-content::before {
             content: "";
@@ -92,10 +100,10 @@
         }
 
         .social-icons a img {
-            width: 3vw;
+            width: clamp(24px, 4vw, 48px);
             height: auto;
             transition: transform 0.3s ease;
-        }
+          }
 
         .social-icons a img:hover {
             transform: scale(1.2);
