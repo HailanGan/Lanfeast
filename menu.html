@@ -116,6 +116,14 @@
             text-align: center;
         }
 
+        .menu-item_title {
+            color: #D5B49F;
+            font-size: clamp(16px, 2.5vw, 20px);
+            font-weight: 700;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
         .menu-row {
             display: grid;
             grid-template-columns: 250px 1fr;
@@ -127,24 +135,43 @@
             font-size: clamp(16px, 2.5vw, 20px);
             font-weight: 700;
             margin-bottom: 5px;
+            text-align: left;
         }
 
         .item-chinese {
             color: white;
             font-size: clamp(14px, 2vw, 18px);
             font-weight: 600;
+            text-align: left;
+        }
+
+        .item-title-biao {
+            color: #D5B49F;
+            font-size: clamp(16px, 2.5vw, 20px);
+            font-weight: 700;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        .item-chinese-biao {
+            color: white;
+            font-size: clamp(14px, 2vw, 18px);
+            font-weight: 600;
+            text-align: center;
         }
 
         .item-description {
             color: white;
             font-size: clamp(12px, 1.8vw, 14px);
             margin-top: 5px;
+            text-align: left;
         }
 
         .noodles_item-description {
             color: orange;
             font-size: clamp(16px, 2.5vw, 20px);
             margin-top: 5px;
+            text-align: left;
         }
 
         .item-price {
@@ -599,7 +626,7 @@
 
  <section class="menu-section">
    <div class="section-title">ALL ABOUT WHEATS 主食</div>
-     <div class="item-title">NOODLES | PANCAKE | BAO</div>
+     <div class="menu-item_title">NOODLES | PANCAKE | BAO</div>
    <div class="menu-box">
        <div class="menu-items-grid">
            <div class="menu-item">
@@ -806,29 +833,29 @@
             <!-- Noodle Types -->
             <div class="menu-row">
                 <div class="menu-label">
-                    <div class="item-title" align= "center">Noodle Types</div>
-                    <div class="item-chinese" align="center">面粗细</div>
+                    <div class="item-title-biao">Noodle Types</div>
+                    <div class="item-chinese-biao">面粗细</div>
                 </div>
                 <div class="menu-options">
                     <div class="option">
-                        <div class="item-title">Thin</div>
-                        <div class="item-chinese">毛细</div>
+                        <div class="item-title-biao">Thin</div>
+                        <div class="item-chinese-biao">毛细</div>
                     </div>
                     <div class="option">
-                        <div class="item-title">Regular</div>
-                        <div class="item-chinese">细</div>
+                        <div class="item-title-biao">Regular</div>
+                        <div class="item-chinese-biao">细</div>
                     </div>
                     <div class="option">
-                        <div class="item-title">Thick</div>
-                        <div class="item-chinese">二细</div>
+                        <div class="item-title-biao">Thick</div>
+                        <div class="item-chinese-biao">二细</div>
                     </div>
                     <div class="option">
-                        <div class="item-title">Wide</div>
-                        <div class="item-chinese">韭叶</div>
+                        <div class="item-title-biao">Wide</div>
+                        <div class="item-chinese-biao">韭叶</div>
                     </div>
                     <div class="option">
-                        <div class="item-title">Extra Wide</div>
-                        <div class="item-chinese">大宽</div>
+                        <div class="item-title-biao">Extra Wide</div>
+                        <div class="item-chinese-biao">大宽</div>
                     </div>
                 </div>
             </div>
@@ -836,34 +863,34 @@
             <!-- Spicy Level -->
             <div class="menu-row">
                 <div class="menu-label">
-                    <div class="item-title" align= "center" >Spicy Level</div>
-                    <div class="item-chinese" align= "center">辣度</div>
+                    <div class="item-title-biao" >Spicy Level</div>
+                    <div class="item-chinese-biao" >辣度</div>
                 </div>
                 <div class="menu-options">
                     <div class="option">
                         <img src="not.png" alt="Spicy" width=30px height=30px>
-                        <div class="item-title">No Spicy</div>
-                        <div class="item-chinese">不辣</div>
+                        <div class="item-title-biao">No Spicy</div>
+                        <div class="item-chinese-biao">不辣</div>
                     </div>
                     <div class="option">
                         <img src="Group.png" alt="Spicy">
-                        <div class="item-title">Mild</div>
-                        <div class="item-chinese">微辣</div>
+                        <div class="item-title-biao">Mild</div>
+                        <div class="item-chinese-biao">微辣</div>
                         <div class="spicy-level">
                         </div>
                     </div>
                     <div class="option">
                         <img src="Group.png" alt="Spicy">
                         <img src="Group.png" alt="Spicy">
-                        <div class="item-title">Regular</div>
-                        <div class="item-chinese">正常</div>
+                        <div class="item-title-biao">Regular</div>
+                        <div class="item-chinese-biao">正常</div>
                     </div>
                     <div class="option">
                         <img src="Group.png" alt="Spicy">
                         <img src="Group.png" alt="Spicy">
                         <img src="Group.png" alt="Spicy">
-                        <div class="item-title">Extra Hot</div>
-                        <div class="item-chinese">辣子多多滴</div>
+                        <div class="item-title-biao">Extra Hot</div>
+                        <div class="item-chinese-biao">辣子多多滴</div>
                     </div>
                 </div>
             </div>
@@ -871,36 +898,36 @@
             <!-- Toppings -->
             <div class="menu-row toppings-row">
                     <div class="topping-section">
-                        <div class="item-title">Cilantro</div>
-                        <div class="item-chinese">香菜</div>
+                        <div class="item-title-biao">Cilantro</div>
+                        <div class="item-chinese-biao">香菜</div>
                     </div>
                     <div class="topping-section">
                         <div class="yes-no-container">
                             <div>
-                                <div class="item-title">Yes</div>
-                                <div class="item-chinese">要</div>
+                                <div class="item-title-biao">Yes</div>
+                                <div class="item-chinese-biao">要</div>
                             </div>
                             <div>
-                                <div class="item-title">No</div>
-                                <div class="item-chinese">不要</div>
+                                <div class="item-title-biao">No</div>
+                                <div class="item-chinese-biao">不要</div>
                             </div>
                         </div>
                     </div>
             </div>
                 <div class="menu-row toppings-row">
                     <div class="topping-section">
-                        <div class="item-title">Leek</div>
-                        <div class="item-chinese">蒜苗</div>
+                        <div class="item-title-biao">Leek</div>
+                        <div class="item-chinese-biao">蒜苗</div>
                     </div>
                     <div class="topping-section">
                         <div class="yes-no-container">
                             <div>
-                                <div class="item-title">Yes</div>
-                                <div class="item-chinese">要</div>
+                                <div class="item-title-biao">Yes</div>
+                                <div class="item-chinese-biao">要</div>
                             </div>
                             <div>
-                                <div class="item-title">No</div>
-                                <div class="item-chinese">不要</div>
+                                <div class="item-title-biao">No</div>
+                                <div class="item-chinese-biao">不要</div>
                             </div>
                         </div>
                     </div>
